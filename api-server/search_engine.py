@@ -17,7 +17,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 import chromadb
 from sentence_transformers import SentenceTransformer
 
-from entity_relationship_graph import get_knowledge_graph
+from knowledge_graph import get_knowledge_graph
 
 # Set up logging
 logger = logging.getLogger(__name__)

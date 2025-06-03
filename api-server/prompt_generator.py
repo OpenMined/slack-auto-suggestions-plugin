@@ -15,7 +15,7 @@ import json
 import re
 from collections import defaultdict
 
-from document_hierarchy_manager import (
+from hierarchy_manager import (
     HierarchicalContextManager, 
     ContextRequest, 
     ContextType, 

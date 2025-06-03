@@ -13,8 +13,8 @@ from datetime import datetime
 from collections import defaultdict
 import json
 
-from semantic_search_engine import EnhancedSearchSystem
-from entity_relationship_graph import get_knowledge_graph
+from search_engine import EnhancedSearchSystem
+from knowledge_graph import get_knowledge_graph
 from agent.providers.provider_configuration_manager import get_provider_manager
 
 # Set up logging

@@ -19,26 +19,26 @@ from fastapi.responses import JSONResponse
 from pydantic import BaseModel, Field
 
 # Core components
-from docling_document_processor import (
+from document_processor import (
     UnifiedDoclingProcessor,
     UnifiedProcessingResult,
     get_unified_processor
 )
-from entity_relationship_graph import (
+from knowledge_graph import (
     KnowledgeGraphSystem,
     KnowledgeGraphStats,
     get_knowledge_graph
 )
-from semantic_search_engine import EnhancedSearchSystem
-from ai_context_builder import EnhancedAIIntegration
-from intelligent_prompt_generator import EnhancedPromptGenerator
+from search_engine import EnhancedSearchSystem
+from context_builder import EnhancedAIIntegration
+from prompt_generator import EnhancedPromptGenerator
 from agent.providers.provider_configuration_manager import get_provider_manager
-from intelligent_suggestion_engine import SuggestionService
+from suggestion_engine import SuggestionService
 
 # Monitoring and performance
-from system_memory_optimizer import MemoryManager
-from basic_concurrency_manager import ConcurrentOptimizer
-from system_metrics_monitor import MonitoringFramework, AlertingSystem
+from memory_optimizer import MemoryManager
+from concurrency_manager import ConcurrentOptimizer
+from metrics_monitor import MonitoringFramework, AlertingSystem
 
 # Set up logging
 logger = logging.getLogger(__name__)

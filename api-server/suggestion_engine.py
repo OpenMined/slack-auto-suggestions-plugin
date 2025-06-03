@@ -6,7 +6,7 @@ from typing import Dict, List, Optional, Any
 from datetime import datetime, timedelta
 import asyncio
 
-from conversation_prompt_templates import PromptTemplates
+from prompt_templates import PromptTemplates
 from agent.providers.provider_configuration_manager import get_provider_manager
 
 logger = logging.getLogger(__name__)
