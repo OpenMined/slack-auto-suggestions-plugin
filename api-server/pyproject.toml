@@ -5,13 +5,13 @@ description = "AI-powered Slack assistant API server with Docling document proce
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
-    "fastapi==0.104.1",
-    "uvicorn[standard]==0.24.0",
+    "fastapi",
+    "uvicorn[standard]",
     "python-multipart==0.0.6",
     "sqlalchemy==2.0.36",
     "aiosqlite==0.19.0",
     # Vector Database and Document Processing
-    "chromadb==0.4.22",
+    "chromadb",
     "docling",
     "sentence-transformers>=2.3.0",
     "torch>=2.0.0",
