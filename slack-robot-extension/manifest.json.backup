@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "Slack Robot Assistant",
+  "version": "2.0",
+  "description": "AI-powered Slack assistant with LLM provider management",
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://*.slack.com/*",
+    "http://localhost:8000/*",
+    "http://127.0.0.1:8000/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*.slack.com/*"],
+      "js": ["content/slack-robot.js"],
+      "css": ["content/slack-robot.css"]
+    },
+    {
+      "matches": ["https://*.slack.com/*"],
+      "js": ["content/slack-message-capture.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "icons": {
+    "16": "icons/robot16.png",
+    "48": "icons/robot48.png",
+    "128": "icons/robot128.png"
+  }
+}

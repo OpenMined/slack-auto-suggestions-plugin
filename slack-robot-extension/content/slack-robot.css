@@ -1,0 +1,55 @@
+/* Ensure robot button matches Slack's button styles */
+button[data-qa="robot-button"] {
+  transition: color 0.1s ease-out, background-color 0.1s ease-out;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto !important; /* Force clickable */
+  cursor: pointer !important;
+}
+
+button[data-qa="robot-button"]:hover {
+  background-color: rgba(29, 28, 29, 0.08);
+}
+
+button[data-qa="robot-button"]:active {
+  background-color: rgba(29, 28, 29, 0.16);
+}
+
+/* Ensure SVG icon displays properly */
+button[data-qa="robot-button"] svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+  pointer-events: none; /* Prevent SVG from blocking clicks */
+}
+
+/* Sticky bar specific styles */
+.p-texty_sticky_formatting_bar button[data-qa="robot-button"] {
+  width: 28px;
+  height: 28px;
+  margin: 0 1px;
+  pointer-events: auto !important; /* Override any parent styles */
+  position: relative;
+  z-index: 999;
+}
+
+/* Override any parent pointer-events */
+.p-texty_sticky_formatting_bar button[data-qa="robot-button"],
+.p-texty_sticky_formatting_bar button[data-qa="robot-button"] * {
+  pointer-events: auto !important;
+}
+
+/* Remove the no-pointer-events class effect */
+button[data-qa="robot-button"].p-composer__button--no_pointer_events {
+  pointer-events: auto !important;
+}
+
+/* Dark mode support */
+.theme_dark button[data-qa="robot-button"]:hover {
+  background-color: rgba(248, 248, 248, 0.08);
+}
+
+.theme_dark button[data-qa="robot-button"]:active {
+  background-color: rgba(248, 248, 248, 0.16);
+}
