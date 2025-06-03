@@ -7,7 +7,7 @@ requires-python = ">=3.12"
 dependencies = [
     "fastapi",
     "uvicorn[standard]",
-    "python-multipart==0.0.6",
+    "python-multipart==0.0.18",
     "sqlalchemy==2.0.36",
     "aiosqlite==0.19.0",
     # Vector Database and Document Processing
