@@ -1,0 +1,84 @@
+<\!DOCTYPE html>
+<html>
+<head>
+  <title>Icon Generator</title>
+</head>
+<body>
+  <canvas id="canvas16" width="16" height="16"></canvas>
+  <canvas id="canvas48" width="48" height="48"></canvas>
+  <canvas id="canvas128" width="128" height="128"></canvas>
+  
+  <script>
+    function drawRobot(canvas, size) {
+      const ctx = canvas.getContext('2d');
+      const scale = size / 20;
+      
+      // Clear canvas
+      ctx.fillStyle = '#4A90E2';
+      ctx.fillRect(0, 0, size, size);
+      
+      // Draw robot
+      ctx.fillStyle = '#FFFFFF';
+      ctx.strokeStyle = '#FFFFFF';
+      ctx.lineWidth = 1 * scale;
+      
+      // Head
+      ctx.fillRect(6*scale, 3*scale, 8*scale, 6*scale);
+      
+      // Eyes
+      ctx.fillStyle = '#4A90E2';
+      ctx.fillRect(8*scale, 5*scale, 2*scale, 2*scale);
+      ctx.fillRect(12*scale, 5*scale, 2*scale, 2*scale);
+      
+      // Body
+      ctx.fillStyle = '#FFFFFF';
+      ctx.fillRect(5*scale, 10*scale, 10*scale, 7*scale);
+      
+      // Arms
+      ctx.fillRect(3*scale, 11*scale, 2*scale, 4*scale);
+      ctx.fillRect(15*scale, 11*scale, 2*scale, 4*scale);
+      
+      // Antenna
+      ctx.beginPath();
+      ctx.moveTo(10*scale, 3*scale);
+      ctx.lineTo(10*scale, 1*scale);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.arc(10*scale, 1*scale, 1*scale, 0, 2*Math.PI);
+      ctx.fill();
+    }
+    
+    // Generate icons
+    drawRobot(document.getElementById('canvas16'), 16);
+    drawRobot(document.getElementById('canvas48'), 48);
+    drawRobot(document.getElementById('canvas128'), 128);
+    
+    // Download helper
+    function downloadCanvas(canvas, filename) {
+      canvas.toBlob(function(blob) {
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      });
+    }
+    
+    // Add download links
+    setTimeout(() => {
+      console.log('Right-click each canvas and save as robot16.png, robot48.png, and robot128.png');
+    }, 100);
+  </script>
+  
+  <p>Right-click each canvas above and save as:</p>
+  <ul>
+    <li>First canvas: robot16.png</li>
+    <li>Second canvas: robot48.png</li>
+    <li>Third canvas: robot128.png</li>
+  </ul>
+</body>
+</html>
+EOF < /dev/null
