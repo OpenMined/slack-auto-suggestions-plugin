@@ -137,10 +137,21 @@ async function handleGetProviderInfo(sendResponse) {
     const response = await fetch(`${API_BASE_URL}/api/llm/providers`);
     const data = await response.json();
     
+    // Find the active provider and construct current object
+    const activeProvider = data.providers?.find(p => p.active);
+    const current = activeProvider ? {
+      provider: activeProvider.name,
+      model: activeProvider.model,
+      active: true,
+      activated_at: new Date().toISOString() // Placeholder timestamp
+    } : {
+      active: false
+    };
+    
     sendResponse({ 
       success: true,
       providers: data.providers || [],
-      current: data.current || {},
+      current: current,
       available_providers: data.available_providers || []
     });
   } catch (error) {
